@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <div class="row">
+    <h3>listado</h3>
+    
+  </div>
+  <button class="btn btn-danger ml-auto" (click)="btntoogle()">
+    botton1
+  </button>
+  <br>
+
+<table *ngIf="listEstu.length> 0; else elseBlock" class="table">
+  <thead>
+    <th>Numero</th>
+    <th>Nombre</th>
+    <th> Estado</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let estudiante of listEstu; let i=index">
+      <td>{{i+1}} </td>
+      <td> {{estudiante.nombre}}</td>
+      <td> 
+        <span [ngClass]="estudiante.estado ==='aprobado' ? 'badge badge-primary': 'badge badge-danger'">
+          {{estudiante.estado}}
+        </span> 
+      </td>
+    </tr>
+  </tbody>
+</table>
+<ng-template #elseBlock>
+  <h5>no hay ni ptm, no este jodiendo</h5>
+</ng-template>
+<!-- <div *ngIf="listEstu.length ==0">
+<h5>no hay ni ptm, no este jodiendo</h5>
+</div> -->
+</div>
